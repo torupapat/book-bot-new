@@ -32,7 +32,6 @@ def print_report(path, wc, letters):
 
 def clean_dict(content):
      new_dict = {}
-     dict_list = []
 
      for dict in content:
           if dict.isalpha():
