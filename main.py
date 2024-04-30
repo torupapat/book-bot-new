@@ -3,8 +3,8 @@ def words_count(content):
     count = len(words_list)
     return count
 
-def open_book():
-    with open("books/frankenstein.txt") as f:
+def open_book(path):
+    with open(path) as f:
         file_contents = f.read()
         return file_contents
     
@@ -22,8 +22,12 @@ def count_letters(content):
             letters_dict[char] = count+1
     return letters_dict
 
+def print_report(wc, letters):
+     pass
+
 def main():
-        file_contents = open_book()
+        book_path = "books/frankenstein.txt"
+        file_contents = open_book(book_path)
         # print(file_contents)
         count_letters(file_contents)
         print(count_letters(file_contents))
