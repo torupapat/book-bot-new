@@ -22,8 +22,13 @@ def count_letters(content):
             letters_dict[char] = count+1
     return letters_dict
 
-def print_report(wc, letters):
-     pass
+def print_report(path, wc, letters):
+     print(f"--- Begin report of {path} ---")
+     print(f"{wc} words found in the document\n")
+     for letter in letters:
+        print(f"The {letter} character was found {letters[letter]} times")
+     print("--- End Report ---")    
+    
 
 def clean_dict(content):
      new_dict = {}
@@ -39,12 +44,13 @@ def clean_dict(content):
 def sort_highest(d, reverse = True):
      return dict((sorted(d.items(), key = lambda x: x[1], reverse = reverse)))
 
-
 def main():
         book_path = "books/frankenstein.txt"
         file_contents = open_book(book_path)
+        w_count = words_count(file_contents)
         letters_d = count_letters(file_contents)
         clean = clean_dict(letters_d)
+        print_report(book_path, w_count, sort_highest(clean))
         # print(sort_highest(clean))
 
 main()
