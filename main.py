@@ -25,11 +25,26 @@ def count_letters(content):
 def print_report(wc, letters):
      pass
 
+def clean_dict(content):
+     new_dict = {}
+     dict_list = []
+
+     for dict in content:
+          if dict.isalpha():
+            # new_dict = {"name":dict,"num":content[dict]}
+            # dict_list.append(new_dict)
+            new_dict[dict] = content[dict]
+     return new_dict
+    
+def sort_highest(d, reverse = True):
+     return dict((sorted(d.items(), key = lambda x: x[1], reverse = reverse)))
+
+
 def main():
         book_path = "books/frankenstein.txt"
         file_contents = open_book(book_path)
-        # print(file_contents)
-        count_letters(file_contents)
-        print(count_letters(file_contents))
+        letters_d = count_letters(file_contents)
+        clean = clean_dict(letters_d)
+        # print(sort_highest(clean))
 
 main()
